@@ -1,410 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>marta.make.some.art</title>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Work+Sans:wght@300;400&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #FFFFFF;
-    --violet: #C9C0D3;
-    --brown: #C4A882;
-    --text: #2E2E2E;
-  }
-  
-  html {
-    scroll-behavior: smooth;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>marta.make.some.art — Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Work+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --violet: #C9C0D3;
+            --brown: #C4A882;
+            --text: #2E2E2E;
+        }
 
-  body {
-    margin: 0; 
-    padding: 0;
-    background-color: var(--bg); 
-    color: var(--text);
-    font-family: 'Work Sans', sans-serif; 
-    line-height: 1.75;
-    overflow-x: hidden;
-  }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  h1, h2, h3, h4, h5, h6, .logo {
-    font-family: 'Open Sans', sans-serif; 
-    font-weight: 300; 
-    margin: 0;
-  }
+        body {
+            background-color: var(--white);
+            color: var(--text);
+            font-family: 'Work Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
 
-  a { 
-    text-decoration: none; 
-    color: inherit; 
-    transition: color 0.2s ease; 
-  }
-  
-  a:hover { 
-    color: var(--brown); 
-  }
-  
-  /* Navigation */
-  nav {
-    position: fixed; 
-    top: 0; 
-    width: 100%; 
-    background: rgba(255,255,255,0.98);
-    z-index: 1000; 
-    padding: 20px 40px; 
-    box-sizing: border-box;
-    border-bottom: 1px solid var(--violet);
-  }
-  
-  .nav-container { 
-    max-width: 1100px; 
-    margin: 0 auto; 
-    text-align: center; 
-  }
-  
-  .logo { 
-    font-size: 24px; 
-    letter-spacing: 0.05em; 
-    margin-bottom: 10px; 
-    display: block; 
-  }
-  
-  .nav-links { 
-    display: flex; 
-    justify-content: center; 
-    gap: 40px; 
-    font-size: 13px; 
-    text-transform: uppercase; 
-    letter-spacing: 0.12em; 
-  }
-  
-  .nav-item { 
-    position: relative; 
-    padding-bottom: 5px;
-  }
-  
-  .nav-item::after { 
-    content: ''; 
-    position: absolute; 
-    width: 0; 
-    height: 1px; 
-    bottom: 0; 
-    left: 0; 
-    background-color: var(--violet); 
-    transition: width 0.3s ease, background-color 0.3s ease; 
-  }
-  
-  .nav-item:hover::after { 
-    width: 100%; 
-    background-color: var(--brown); 
-  }
-  
-  .dropdown { 
-    display: none; 
-    position: absolute; 
-    top: 100%; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    background: #fff; 
-    border: 1px solid var(--violet); 
-    padding: 15px; 
-    flex-direction: column; 
-    gap: 15px; 
-    min-width: 150px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-  }
-  
-  .nav-item:hover .dropdown { 
-    display: flex; 
-  }
-  
-  /* Layout */
-  main { 
-    margin-top: 120px; 
-  }
-  
-  section { 
-    max-width: 1100px; 
-    margin: 0 auto; 
-    padding: 100px 40px; 
-    box-sizing: border-box; 
-  }
-  
-  .two-col { 
-    display: flex; 
-    gap: 60px; 
-    align-items: center; 
-  }
-  
-  .col { 
-    flex: 1; 
-  }
-  
-  .image-placeholder { 
-    background: #fdfdfd; 
-    border: 1px dashed var(--violet); 
-    width: 100%; 
-    aspect-ratio: 3/4; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    color: var(--violet); 
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: transform 0.4s ease;
-  }
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px 40px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 0.5px solid var(--violet);
+        }
 
-  .image-placeholder:hover {
-    transform: scale(1.02);
-  }
-  
-  .landscape {
-    aspect-ratio: 16/9;
-  }
-  
-  /* Section Eyebrow */
-  .eyebrow { 
-    text-transform: uppercase; 
-    letter-spacing: 0.2em; 
-    font-size: 11px; 
-    color: var(--violet); 
-    margin-bottom: 20px; 
-    display: block; 
-  }
-  
-  /* Skills Band */
-  .skills-band { 
-    background: var(--violet); 
-    padding: 40px 20px; 
-    text-align: center; 
-    margin-top: 60px; 
-    color: #fff; 
-    font-weight: 400;
-    font-size: 14px;
-    letter-spacing: 0.05em; 
-  }
-  
-  /* Grid */
-  .grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-    gap: 40px; 
-    margin-top: 60px; 
-  }
-  
-  .card { 
-    border: 0.5px solid var(--violet); 
-    position: relative; 
-    overflow: hidden; 
-    aspect-ratio: 4/3; 
-    background: #fff; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-  }
-  
-  .card .overlay { 
-    position: absolute; 
-    inset: 0; 
-    background: rgba(201, 192, 211, 0.15); 
-    opacity: 0; 
-    transition: opacity 0.4s ease; 
-    display: flex; 
-    align-items: flex-end; 
-    padding: 30px; 
-  }
-  
-  .card:hover .overlay { 
-    opacity: 1; 
-  }
-  
-  .card-title { 
-    font-family: 'Open Sans', sans-serif;
-    transform: translateY(15px); 
-    opacity: 0; 
-    transition: transform 0.4s ease, opacity 0.4s ease; 
-    font-size: 20px; 
-    color: var(--text);
-  }
-  
-  .card:hover .card-title { 
-    transform: translateY(0); 
-    opacity: 1; 
-  }
-  
-  /* Animations */
-  .fade-in { 
-    opacity: 0; 
-    transform: translateY(30px); 
-    transition: opacity 0.8s ease, transform 0.8s ease; 
-  }
-  
-  .fade-in.visible { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
-  
-  footer { 
-    text-align: center; 
-    padding: 60px 40px; 
-    border-top: 1px solid var(--violet); 
-    font-size: 13px; 
-    letter-spacing: 0.1em;
-    color: var(--violet);
-  }
+        .nav-logo {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 22px;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+            color: var(--text);
+            text-decoration: none;
+        }
 
-  @media (max-width: 768px) {
-    .two-col { flex-direction: column; }
-    .nav-links { gap: 20px; }
-  }
-</style>
+        .nav-tabs {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-tabs a {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            text-decoration: none;
+            color: var(--text);
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-tabs a:hover { color: var(--brown); }
+
+        .nav-tabs a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background: var(--violet);
+            transition: width 0.3s;
+        }
+
+        .nav-tabs a:hover::after { width: 100%; background: var(--brown); }
+
+        /* --- LAYOUT --- */
+        main { max-width: 1100px; margin: 180px auto 100px; padding: 0 40px; }
+
+        section { margin-bottom: 150px; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        section.visible { opacity: 1; transform: translateY(0); }
+
+        .title-img {
+            width: 65%; /* Conforme pedido: 60-70% */
+            margin-bottom: 60px;
+            display: block;
+            animation: fadeInScale 1s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.96); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* --- ABOUT ME SPECIFIC --- */
+        .sticky-photo {
+            position: sticky;
+            top: 200px;
+            width: 100%;
+            transition: transform 0.4s ease;
+        }
+        .sticky-photo:hover { transform: scale(1.03); }
+
+        .skills-band {
+            background-color: var(--violet);
+            padding: 40px;
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text);
+        }
+
+        /* --- PORTFOLIO GRID --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .project-card {
+            position: relative;
+            background: var(--white);
+            overflow: hidden;
+            border: 0.5px solid var(--violet);
+        }
+
+        .project-card img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover img { transform: scale(1.05); }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(201, 192, 211, 0.15);
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover .overlay { opacity: 1; }
+
+        .overlay span {
+            font-family: 'Open Sans';
+            font-weight: 300;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .overlay span { transform: translateY(0); }
+
+        /* --- TYPOGRAPHY UTILS --- */
+        h2 { font-family: 'Open Sans'; font-weight: 300; font-size: 28px; margin-bottom: 20px; }
+        .eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--violet); display: block; margin-bottom: 10px; }
+
+        footer { text-align: center; padding: 80px; border-top: 0.5px solid var(--violet); color: var(--violet); font-size: 12px; }
+
+        @media (max-width: 768px) {
+            .two-column, .portfolio-grid { grid-template-columns: 1fr; }
+            .title-img { width: 90%; }
+        }
+    </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-container">
-    <a href="#home" class="logo">marta.make.some.art</a>
-    <div class="nav-links">
-      <a href="#home" class="nav-item">Home</a>
-      <a href="#about" class="nav-item">About Me</a>
-      <div class="nav-item">
+    <a href="#home" class="nav-logo">marta.make.some.art</a>
+    <div class="nav-tabs">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
         <a href="#portfolio">Portfolio</a>
-        <div class="dropdown">
-          <a href="#animation">Animation</a>
-          <a href="#blender">Blender</a>
-          <a href="#photography">Photography</a>
-          <a href="#videography">Videography</a>
-        </div>
-      </div>
     </div>
-  </div>
 </nav>
 
 <main>
-  <section id="home" class="fade-in">
-    <div class="two-col">
-      <div class="col">
-        <div class="image-placeholder">[ home_title.jpg ]<br><br>Insert Photo</div>
-      </div>
-      <div class="col">
-        <h2>Home</h2>
-        <br>
-        <p><strong>Hello, I'm Marta Almeida (Lisbon, 2005).</strong></p>
-        <p>I'm a Multimedia and Visual Artist. I'm completing my third year of a degree in Fine Arts and Multimedia at the University of Évora. My artistic work stems from my academic background and the various areas of multimedia I have explored.</p>
-      </div>
-    </div>
-  </section>
+    <section id="home">
+        <img src="HOME.jpg" alt="Home" class="title-img">
+        <div class="two-column">
+            <div>
+                <img src="marta-photo.jpg" alt="Marta" class="sticky-photo"> </div>
+            <div>
+                <span class="eyebrow">Multimedia Artist</span>
+                <p>Hello, I'm Marta Almeida (Lisbon, 2005). I'm a Multimedia and Visual Artist completing my third year of a degree in Fine Arts and Multimedia at the University of Évora.</p>
+                <p style="margin-top: 20px;">My work flows from academic exploration into digital and visual fusion, covering everything from 3D modeling to experimental video.</p>
+            </div>
+        </div>
+    </section>
 
-  <section id="about" class="fade-in">
-    <span class="eyebrow">Profile</span>
-    <h2>About Me</h2>
-    <br>
-    <div class="two-col">
-      <div class="col">
-         <div class="image-placeholder">[ aboutme_title.jpg ]<br><br>Sticky Portrait</div>
-      </div>
-      <div class="col">
-        <p>My artistic work stems from my academic background and the various areas of multimedia I have explored, including audio and video editing, photography (on a personal level), 2D and 3D animation, stop motion, and 3D printing.</p>
-      </div>
-    </div>
-    <div class="skills-band">
-      2D Animation &nbsp;·&nbsp; 3D Modeling/Animation &nbsp;·&nbsp; Stop Motion &nbsp;·&nbsp; Photography &nbsp;·&nbsp; 3D Printing &nbsp;·&nbsp; Audio Edition
-    </div>
-  </section>
+    <section id="about">
+        <img src="ABOUT ME.jpg" alt="About Me" class="title-img">
+        <div class="two-column">
+            <div style="font-size: 17px;">
+                <p>My artistic work stems from my academic background and the various areas of multimedia I have explored, including audio and video editing, photography (on a personal level), 2D and 3D animation, stop motion, and 3D printing.</p>
+            </div>
+            <div>
+                <img src="marta-working.jpg" alt="About Marta" class="sticky-photo">
+            </div>
+        </div>
+        <div class="skills-band">
+            Animation · Photography · Videography · Blender · Stop Motion · 3D Printing
+        </div>
+    </section>
 
-  <section id="portfolio" class="fade-in">
-    <span class="eyebrow">Works</span>
-    <h2>Portfolio</h2>
-    <br>
-    <p style="max-width: 800px;">This portfolio presents a selection of works organized by areas that reflect my technical skills and creative interests. The 2D and 3D Animation section explores movement and visual narrative, while 3D Modeling demonstrates mastery of three-dimensional creation tools.</p>
-    
-    <div class="grid">
-      <div class="card">
-        <h3>Videography</h3>
-        <a href="#videography" class="overlay"><span class="card-title">View Projects</span></a>
-      </div>
-      <div class="card">
-        <h3>Photography</h3>
-        <a href="#photography" class="overlay"><span class="card-title">View Projects</span></a>
-      </div>
-      <div class="card">
-        <h3>Blender</h3>
-        <a href="#blender" class="overlay"><span class="card-title">View Projects</span></a>
-      </div>
-      <div class="card">
-        <h3>Animation</h3>
-        <a href="#animation" class="overlay"><span class="card-title">View Projects</span></a>
-      </div>
-    </div>
-  </section>
+    <section id="portfolio">
+        <img src="PORTFOLIO.jpg" alt="Portfolio" class="title-img">
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <img src="animation-thumb.jpg" alt="Animation">
+                <div class="overlay"><span>Animation</span></div>
+            </div>
+            <div class="project-card">
+                <img src="video-thumb.jpg" alt="Videography">
+                <div class="overlay"><span>Videography</span></div>
+            </div>
+            <div class="project-card">
+                <img src="blender-thumb.jpg" alt="Blender">
+                <div class="overlay"><span>Blender / 3D</span></div>
+            </div>
+            <div class="project-card">
+                <img src="photo-thumb.jpg" alt="Photography">
+                <div class="overlay"><span>Photography</span></div>
+            </div>
+        </div>
+    </section>
 
-  <section id="animation" class="fade-in">
-    <span class="eyebrow">Category</span>
-    <h2>Animation</h2>
-    <br><br>
-    <div class="two-col">
-      <div class="col">
-        <h3>3D Animation - Cybercity</h3>
-        <br>
-        <p>The main character appears in a futuristic city, wandering through buildings and observing the environment. This journey is portrayed through a subjective perspective (POV), interspersed with wide shots of the urban landscape. The aesthetics were influenced by the Cyberpunk 2077 universe, particularly in terms of the density of buildings, artificial lighting, and the feeling of intense urbanization.</p>
-      </div>
-      <div class="col">
-        <div class="image-placeholder landscape">[ Cybercity Video Embed ]</div>
-      </div>
-    </div>
-    <br><br><br>
-    <div class="two-col">
-      <div class="col">
-        <div class="image-placeholder landscape">[ Yotsuki Video Embed ]</div>
-      </div>
-      <div class="col">
-        <h3>3D Animation - Yotsuki</h3>
-        <br>
-        <p>The main character is an original creation (OC) named Yotsuki, who is the central element of the animation. The video is based on a pre-existing story, but I chose not to explicitly develop the concept or narrative, as it would not be noticeable. So, I limited myself to subtly introducing the character in one of the main scenes.</p>
-      </div>
-    </div>
-  </section>
+    <section id="blender-detail">
+        <img src="BLENDER.jpg" alt="Blender" class="title-img">
+        <div class="two-column">
+            <div>
+                <span class="eyebrow">3D Modeling</span>
+                <h2>My Room</h2>
+                <p>The goal was to create a 3D environment in Blender representing "my room." I opted for a simpler and more delicate approach, reflecting my personal tastes and how I idealize my space.</p>
+            </div>
+            <img src="quarto-render.jpg" alt="My Room Render" style="width: 100%;">
+        </div>
+    </section>
 
-  <section id="blender" class="fade-in">
-    <span class="eyebrow">Category</span>
-    <h2>Blender</h2>
-    <br><br>
-    <h3>My Room</h3>
-    <br>
-    <p style="max-width: 800px;">In this exercise, the goal was to create a 3D environment in Blender that represented 'my room.' For this project, I opted for a simpler and more delicate approach. The modeled room is a small representation of how I idealize my personal space, a reflection of my tastes and preferences.</p>
-    <div class="image-placeholder landscape" style="margin-top: 40px;">[ My Room 3D Render Image ]</div>
-  </section>
-  
-  <section id="photography" class="fade-in">
-    <span class="eyebrow">Category</span>
-    <h2>Photography</h2>
-    <br><br>
-    <p>In Photography, I present records that highlight composition and framing. <em>(Masonry gallery goes here)</em></p>
-    <div class="grid" style="margin-top: 40px;">
-      <div class="image-placeholder">[ Photo 1 ]</div>
-      <div class="image-placeholder">[ Photo 2 ]</div>
-    </div>
-  </section>
+    <section id="animation-detail">
+        <img src="ANIMATION.jpg" alt="Animation" class="title-img">
+        <div class="two-column">
+            <img src="cybercity-render.jpg" alt="Cybercity" style="width: 100%;">
+            <div>
+                <span class="eyebrow">3D Animation</span>
+                <h2>Cybercity</h2>
+                <p>Inspired by the Cyberpunk 2077 universe. A journey through a futuristic landscape using POV shots and wide angles to emphasize urban density and artificial lighting.</p>
+            </div>
+        </div>
+    </section>
 
 </main>
 
 <footer>
-  marta.make.some.art
+    marta.make.some.art — 2025
 </footer>
 
 <script>
-  // Intersection Observer for fluid fade-in scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.15 });
+    // Scroll Animation Logic
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
 
-  document.querySelectorAll('.fade-in').forEach((el) => {
-    observer.observe(el);
-  });
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
 </script>
+
 </body>
 </html>
