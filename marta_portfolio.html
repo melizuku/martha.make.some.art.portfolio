@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>marta.make.some.art</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Work+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --violet: #C9C0D3;
+    --brown: #C4A882;
+    --text: #2E2E2E;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0; 
+    padding: 0;
+    background-color: var(--bg); 
+    color: var(--text);
+    font-family: 'Work Sans', sans-serif; 
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6, .logo {
+    font-family: 'Open Sans', sans-serif; 
+    font-weight: 300; 
+    margin: 0;
+  }
+
+  a { 
+    text-decoration: none; 
+    color: inherit; 
+    transition: color 0.2s ease; 
+  }
+  
+  a:hover { 
+    color: var(--brown); 
+  }
+  
+  /* Navigation */
+  nav {
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    background: rgba(255,255,255,0.98);
+    z-index: 1000; 
+    padding: 20px 40px; 
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--violet);
+  }
+  
+  .nav-container { 
+    max-width: 1100px; 
+    margin: 0 auto; 
+    text-align: center; 
+  }
+  
+  .logo { 
+    font-size: 24px; 
+    letter-spacing: 0.05em; 
+    margin-bottom: 10px; 
+    display: block; 
+  }
+  
+  .nav-links { 
+    display: flex; 
+    justify-content: center; 
+    gap: 40px; 
+    font-size: 13px; 
+    text-transform: uppercase; 
+    letter-spacing: 0.12em; 
+  }
+  
+  .nav-item { 
+    position: relative; 
+    padding-bottom: 5px;
+  }
+  
+  .nav-item::after { 
+    content: ''; 
+    position: absolute; 
+    width: 0; 
+    height: 1px; 
+    bottom: 0; 
+    left: 0; 
+    background-color: var(--violet); 
+    transition: width 0.3s ease, background-color 0.3s ease; 
+  }
+  
+  .nav-item:hover::after { 
+    width: 100%; 
+    background-color: var(--brown); 
+  }
+  
+  .dropdown { 
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: #fff; 
+    border: 1px solid var(--violet); 
+    padding: 15px; 
+    flex-direction: column; 
+    gap: 15px; 
+    min-width: 150px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+  }
+  
+  .nav-item:hover .dropdown { 
+    display: flex; 
+  }
+  
+  /* Layout */
+  main { 
+    margin-top: 120px; 
+  }
+  
+  section { 
+    max-width: 1100px; 
+    margin: 0 auto; 
+    padding: 100px 40px; 
+    box-sizing: border-box; 
+  }
+  
+  .two-col { 
+    display: flex; 
+    gap: 60px; 
+    align-items: center; 
+  }
+  
+  .col { 
+    flex: 1; 
+  }
+  
+  .image-placeholder { 
+    background: #fdfdfd; 
+    border: 1px dashed var(--violet); 
+    width: 100%; 
+    aspect-ratio: 3/4; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: var(--violet); 
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: transform 0.4s ease;
+  }
+
+  .image-placeholder:hover {
+    transform: scale(1.02);
+  }
+  
+  .landscape {
+    aspect-ratio: 16/9;
+  }
+  
+  /* Section Eyebrow */
+  .eyebrow { 
+    text-transform: uppercase; 
+    letter-spacing: 0.2em; 
+    font-size: 11px; 
+    color: var(--violet); 
+    margin-bottom: 20px; 
+    display: block; 
+  }
+  
+  /* Skills Band */
+  .skills-band { 
+    background: var(--violet); 
+    padding: 40px 20px; 
+    text-align: center; 
+    margin-top: 60px; 
+    color: #fff; 
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.05em; 
+  }
+  
+  /* Grid */
+  .grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 40px; 
+    margin-top: 60px; 
+  }
+  
+  .card { 
+    border: 0.5px solid var(--violet); 
+    position: relative; 
+    overflow: hidden; 
+    aspect-ratio: 4/3; 
+    background: #fff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+  }
+  
+  .card .overlay { 
+    position: absolute; 
+    inset: 0; 
+    background: rgba(201, 192, 211, 0.15); 
+    opacity: 0; 
+    transition: opacity 0.4s ease; 
+    display: flex; 
+    align-items: flex-end; 
+    padding: 30px; 
+  }
+  
+  .card:hover .overlay { 
+    opacity: 1; 
+  }
+  
+  .card-title { 
+    font-family: 'Open Sans', sans-serif;
+    transform: translateY(15px); 
+    opacity: 0; 
+    transition: transform 0.4s ease, opacity 0.4s ease; 
+    font-size: 20px; 
+    color: var(--text);
+  }
+  
+  .card:hover .card-title { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+  
+  /* Animations */
+  .fade-in { 
+    opacity: 0; 
+    transform: translateY(30px); 
+    transition: opacity 0.8s ease, transform 0.8s ease; 
+  }
+  
+  .fade-in.visible { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+  
+  footer { 
+    text-align: center; 
+    padding: 60px 40px; 
+    border-top: 1px solid var(--violet); 
+    font-size: 13px; 
+    letter-spacing: 0.1em;
+    color: var(--violet);
+  }
+
+  @media (max-width: 768px) {
+    .two-col { flex-direction: column; }
+    .nav-links { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="#home" class="logo">marta.make.some.art</a>
+    <div class="nav-links">
+      <a href="#home" class="nav-item">Home</a>
+      <a href="#about" class="nav-item">About Me</a>
+      <div class="nav-item">
+        <a href="#portfolio">Portfolio</a>
+        <div class="dropdown">
+          <a href="#animation">Animation</a>
+          <a href="#blender">Blender</a>
+          <a href="#photography">Photography</a>
+          <a href="#videography">Videography</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section id="home" class="fade-in">
+    <div class="two-col">
+      <div class="col">
+        <div class="image-placeholder">[ home_title.jpg ]<br><br>Insert Photo</div>
+      </div>
+      <div class="col">
+        <h2>Home</h2>
+        <br>
+        <p><strong>Hello, I'm Marta Almeida (Lisbon, 2005).</strong></p>
+        <p>I'm a Multimedia and Visual Artist. I'm completing my third year of a degree in Fine Arts and Multimedia at the University of Évora. My artistic work stems from my academic background and the various areas of multimedia I have explored.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="fade-in">
+    <span class="eyebrow">Profile</span>
+    <h2>About Me</h2>
+    <br>
+    <div class="two-col">
+      <div class="col">
+         <div class="image-placeholder">[ aboutme_title.jpg ]<br><br>Sticky Portrait</div>
+      </div>
+      <div class="col">
+        <p>My artistic work stems from my academic background and the various areas of multimedia I have explored, including audio and video editing, photography (on a personal level), 2D and 3D animation, stop motion, and 3D printing.</p>
+      </div>
+    </div>
+    <div class="skills-band">
+      2D Animation &nbsp;·&nbsp; 3D Modeling/Animation &nbsp;·&nbsp; Stop Motion &nbsp;·&nbsp; Photography &nbsp;·&nbsp; 3D Printing &nbsp;·&nbsp; Audio Edition
+    </div>
+  </section>
+
+  <section id="portfolio" class="fade-in">
+    <span class="eyebrow">Works</span>
+    <h2>Portfolio</h2>
+    <br>
+    <p style="max-width: 800px;">This portfolio presents a selection of works organized by areas that reflect my technical skills and creative interests. The 2D and 3D Animation section explores movement and visual narrative, while 3D Modeling demonstrates mastery of three-dimensional creation tools.</p>
+    
+    <div class="grid">
+      <div class="card">
+        <h3>Videography</h3>
+        <a href="#videography" class="overlay"><span class="card-title">View Projects</span></a>
+      </div>
+      <div class="card">
+        <h3>Photography</h3>
+        <a href="#photography" class="overlay"><span class="card-title">View Projects</span></a>
+      </div>
+      <div class="card">
+        <h3>Blender</h3>
+        <a href="#blender" class="overlay"><span class="card-title">View Projects</span></a>
+      </div>
+      <div class="card">
+        <h3>Animation</h3>
+        <a href="#animation" class="overlay"><span class="card-title">View Projects</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="animation" class="fade-in">
+    <span class="eyebrow">Category</span>
+    <h2>Animation</h2>
+    <br><br>
+    <div class="two-col">
+      <div class="col">
+        <h3>3D Animation - Cybercity</h3>
+        <br>
+        <p>The main character appears in a futuristic city, wandering through buildings and observing the environment. This journey is portrayed through a subjective perspective (POV), interspersed with wide shots of the urban landscape. The aesthetics were influenced by the Cyberpunk 2077 universe, particularly in terms of the density of buildings, artificial lighting, and the feeling of intense urbanization.</p>
+      </div>
+      <div class="col">
+        <div class="image-placeholder landscape">[ Cybercity Video Embed ]</div>
+      </div>
+    </div>
+    <br><br><br>
+    <div class="two-col">
+      <div class="col">
+        <div class="image-placeholder landscape">[ Yotsuki Video Embed ]</div>
+      </div>
+      <div class="col">
+        <h3>3D Animation - Yotsuki</h3>
+        <br>
+        <p>The main character is an original creation (OC) named Yotsuki, who is the central element of the animation. The video is based on a pre-existing story, but I chose not to explicitly develop the concept or narrative, as it would not be noticeable. So, I limited myself to subtly introducing the character in one of the main scenes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="blender" class="fade-in">
+    <span class="eyebrow">Category</span>
+    <h2>Blender</h2>
+    <br><br>
+    <h3>My Room</h3>
+    <br>
+    <p style="max-width: 800px;">In this exercise, the goal was to create a 3D environment in Blender that represented 'my room.' For this project, I opted for a simpler and more delicate approach. The modeled room is a small representation of how I idealize my personal space, a reflection of my tastes and preferences.</p>
+    <div class="image-placeholder landscape" style="margin-top: 40px;">[ My Room 3D Render Image ]</div>
+  </section>
+  
+  <section id="photography" class="fade-in">
+    <span class="eyebrow">Category</span>
+    <h2>Photography</h2>
+    <br><br>
+    <p>In Photography, I present records that highlight composition and framing. <em>(Masonry gallery goes here)</em></p>
+    <div class="grid" style="margin-top: 40px;">
+      <div class="image-placeholder">[ Photo 1 ]</div>
+      <div class="image-placeholder">[ Photo 2 ]</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  marta.make.some.art
+</footer>
+
+<script>
+  // Intersection Observer for fluid fade-in scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach((el) => {
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
