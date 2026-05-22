@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>martha.make.some.art — Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="lang-switcher">
+    <button id="btn-en" class="lang-btn active">EN</button>
+    <button id="btn-pt" class="lang-btn">PT</button>
+</div>
+
+<!-- HEADER COM SUPORTE FLEXÍVEL E SOURCE DUPLO (Maiúsculas/Minúsculas) PARA O VÍDEO -->
+<header class="main-header" id="home">
+    <div class="logo-container">
+        <video autoplay loop muted playsinline class="main-logo-video">
+            <source src="img/titulos/martha.make.some.art.mp4" type="video/mp4">
+            <source src="img/titulos/MARTHA.MAKE.SOME.ART.mp4" type="video/mp4">
+            <!-- Fallback caso o vídeo ainda não esteja na pasta local -->
+            <img src="img/titulos/MARTHA.MAKE.SOME.ART.jpeg" alt="martha.make.some.art">
+        </video>
+    </div>
+</header>
+
+<div class="nav-wrapper">
+    <nav class="navbar fade-in">
+        <a href="#about" class="nav-link" data-en="About Me" data-pt="Sobre Mim">About Me</a>
+        <a href="#cv" class="nav-link">CV</a>
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#contacts" class="nav-link" data-en="Contacts" data-pt="Contactos">Contacts</a>
+    </nav>
+</div>
+
+<main>
+    <section id="about">
+        <img src="img/titulos/ABOUT ME.jpg" alt="About Me" class="section-title-img-main anim-title">
+        <div class="section-content">
+            <div class="about-container fade-in">
+                <div class="about-text" data-en="<p>Hello, I'm Marta Almeida (Lisbon, 2005). I am a Multimedia and Visual Artist.</p><br><p>I am currently finishing the third year of my degree in Fine Arts and Multimedia at the University of Évora. My artistic work stems from my academic background and the various areas of multimedia I have explored. My goal is to merge digital and visual art, applying my knowledge in 2D and 3D animation, stop motion, 3D printing, video, and photography.</p>" data-pt="<p>Olá, sou a Marta Almeida (Lisboa, 2005). Sou Artista Multimédia e Visual.</p><br><p>Estou a terminar o terceiro ano da licenciatura em Artes Plásticas e Multimédia na Universidade de Évora. O meu trabalho artístico decorre da minha formação académica e das várias áreas da multimédia que tenho explorado. O meu objetivo é fundir a arte digital e visual, aplicando os meus conhecimentos em animação 2D e 3D, stop motion, impressão 3D, vídeo e fotografia.</p>">
+                    <p>Hello, I'm Marta Almeida (Lisbon, 2005). I am a Multimedia and Visual Artist.</p>
+                    <br>
+                    <p>I am currently finishing the third year of my degree in Fine Arts and Multimedia at the University of Évora. My artistic work stems from my academic background and the various areas of multimedia I have explored. My goal is to merge digital and visual art, applying my knowledge in 2D and 3D animation, stop motion, 3D printing, video, and photography.</p>
+                </div>
+                <div class="about-img-container">
+                    <video autoplay loop muted playsinline class="about-img">
+                        <source src="img/titulos/Martinha_video.mp4" type="video/mp4">
+                        <source src="img/titulos/Martinha_video.MP4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cv">
+        <img src="img/titulos/CV.jpeg" alt="CV" class="section-title-img-main anim-title">
+        <div class="section-content">
+            <div class="cv-container fade-in">
+                <div class="cv-category">
+                    <h3 class="cv-title" data-en="Participations" data-pt="Participações">Participations</h3>
+                    <ul class="cv-list">
+                        <li data-en="Participation in the Digital Filmmakers Competition – XVI Edition (2022-2023)" data-pt="Participação no Concurso Cineastas Digitais – XVI Edição (2022-2023)">Participation in the Digital Filmmakers Competition – XVI Edition (2022-2023)</li>
+                        <li data-en="Participation in the exhibition 'Organic Resonances', at the University of Évora (2024)" data-pt="Participação na exposição 'Ressonâncias orgânicas', na Universidade de Évora (2024)">Participation in the exhibition "Organic Resonances", at the University of Évora (2024)</li>
+                        <li data-en="Participation in the exhibition 'See Observe Represent II', at the University of Évora Gallery (2025)" data-pt="Participação na exposição 'Ver Observar Representar II', na Galeria da Universidade de Évora (2025)">Participation in the exhibition "See Observe Represent II", at the University of Évora Gallery (2025)</li>
+                        <li data-en="Television participation representing the University of Évora and the course, as part of a charity event (APPACDM) (2025)" data-pt="Participação em contexto televisivo como representante da Universidade de Évora e do curso, no âmbito de um evento de solidariedade (APPACDM) (2025)">Television participation representing the University of Évora and the course, as part of a charity event (APPACDM) (2025)</li>
+                        <li data-en="Participation in the event 'Living Windows' Solidarity Évora Living City (2025)" data-pt="Participação no Evento 'Montras Vivas' Évora Solidária Cidade Viva (2025)">Participation in the event "Living Windows" Solidarity Évora Living City (2025)</li>
+                        <li data-en="Volunteer at the Open Days of the University of Évora (2026)" data-pt="Voluntário nos Dias Abertos da Universidade de Évora (2026)">Volunteer at the Open Days of the University of Évora (2026)</li>
+                        <li data-en="Participation with a collective video art piece in the Small Citizens Choir project by composer Mariana Vieira, April, Évora_27 (2026)" data-pt="Participação com obra de videoarte coletiva no projeto do Coro dos Pequenos Cidadãos da compositora Mariana Vieira, Abril, Évora_27, (2026)">Participation with a collective video art piece in the Small Citizens Choir project by composer Mariana Vieira, April, Évora_27 (2026)</li>
+                        <li data-en="Participation with collective video art in the exhibition 'DIGITAL BASKET: MULTIMEDIA ART, GENDER, RESEARCH AND TEACHING' at the Art and Culture Center of the Eugénio de Almeida Foundation, April 2026." data-pt="Participação com videoarte coletiva na exposição 'CABAZ DIGITAL: ARTE MULTIMÉDIA, GÉNERO, INVESTIGAÇÃO E ENSINO' Centro de Arte e Cultura da Fundação Eugénio de Almeida, Abril 2026.">Participation with collective video art in the exhibition "DIGITAL BASKET: MULTIMEDIA ART, GENDER, RESEARCH AND TEACHING" at the Art and Culture Center of the Eugénio de Almeida Foundation, April 2026.</li>
+                    </ul>
+                </div>
+                
+                <div class="cv-category">
+                    <h3 class="cv-title" data-en="Complementary Courses" data-pt="Cursos Complementares">Complementary Courses</h3>
+                    <ul class="cv-list">
+                        <li data-en="Workshop 'Graphic diary as artistic exploration' with Mário Linhares (2024)" data-pt="Workshop 'Diário gráfico como exploração artística' com Mário Linhares (2024)">Workshop "Graphic diary as artistic exploration" with Mário Linhares (2024)</li>
+                        <li data-en="Workshop 'Ceramic modeling | In search of the appropriate technique' with Marta Castelo (2024)" data-pt="Workshop 'Modelação em cerâmica | Em busca da técnica adequada' com Marta Castelo (2024)">Workshop "Ceramic modeling | In search of the appropriate technique" with Marta Castelo (2024)</li>
+                        <li data-en="Video Art Laboratory Training Course guided by Prof. Teresa Veiga Furtado and Prof. Hugo Marques (2026)" data-pt="Curso de Formação Laboratório de Videoarte orientado por Prof. Teresa Veiga Furtado and Prof. Hugo Marques (2026)">Video Art Laboratory Training Course guided by Prof. Teresa Veiga Furtado and Prof. Hugo Marques (2026)</li>
+                        <li data-en="NetArt Laboratory guided by Mariana Frias and Prof. Teresa Veiga Furtado (2026)" data-pt="Laboratório de NetArt orientado por Mariana Frias e Prof. Teresa Veiga Furtado (2026)">NetArt Laboratory guided by Mariana Frias and Prof. Teresa Veiga Furtado (2026)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <img src="img/titulos/PORTFOLIO.jpg" alt="Portfolio" class="section-title-img-main anim-title">
+        <div class="section-content">
+            <div class="portfolio-grid fade-in">
+                <a href="photography.html" class="grid-item"><img src="img/titulos/PHOTOGRAPHY.jpg" alt="Photography"></a>
+                <a href="videography.html" class="grid-item"><img src="img/titulos/VIDEOGRAPHY.jpg" alt="Videography"></a>
+                <a href="blender.html" class="grid-item"><img src="img/titulos/BLENDER.jpg" alt="Blender"></a>
+                <a href="animation.html" class="grid-item"><img src="img/titulos/ANIMATION.jpg" alt="Animation"></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts">
+        <img src="img/titulos/CONTACTS.jpeg" alt="Contacts" class="section-title-img-main anim-title">
+        <div class="section-content">
+            <div class="contacts-wrapper fade-in">
+                <div class="social-links">
+                    <a href="mailto:martha.make.some.art@gmail.com" class="social-item">
+                        <svg class="social-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span>martha.make.some.art@gmail.com</span>
+                    </a>
+                    <a href="https://instagram.com/martha.make.some.art" target="_blank" class="social-item">
+                        <svg class="social-icon" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.4 5.6 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.6 18.4 4 16.4 4H7.6m4.4 3.7A4.3 4.3 0 1 1 7.7 12a4.3 4.3 0 0 1 4.3-4.3m0 2.3a2 2 0 1 0 2 2 2 2 0 0 0-2-2m4.6-3.1a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg>
+                        <span>@martha.make.some.art</span>
+                    </a>
+                    <a href="https://www.youtube.com/@melizuku" target="_blank" class="social-item">
+                        <svg class="social-icon" viewBox="0 0 24 24"><path d="M21.6 7.2a2.7 2.7 0 0 0-1.9-1.9C18 4.8 12 4.8 12 4.8s-6 0-7.7.5a2.7 2.7 0 0 0-1.9 1.9c-.5 1.7-.5 5.3-.5 5.3s0 3.6.5 5.3a2.7 2.7 0 0 0 1.9 1.9c1.7.5 7.7.5 7.7.5s6 0 7.7-.5a2.7 2.7 0 0 0 1.9-1.9c.5-1.7.5-5.3.5-5.3s0-3.6-.5-5.3zm-11.6 8.3v-7l6.2 3.5-6.2 3.5z"/></svg>
+                        <span>YouTube Channel</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>© 2026 martha.make.some.art</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
